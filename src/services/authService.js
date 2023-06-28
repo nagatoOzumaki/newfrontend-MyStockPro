@@ -13,13 +13,9 @@ export const validateEmail = (email) => {
 
 export const registerUser = (userData) => {
   return axios
-    .post(
-      `https://stock-managment-backend-production.up.railway.app/api/users/register`,
-      userData,
-      {
-        withCredentials: true,
-      }
-    )
+    .post(`https://stock-managment.onrender.com/api/users/register`, userData, {
+      withCredentials: true,
+    })
     .then((response) => {
       if (response.statusText === "OK") {
         toast.success("User Registered successfully");
@@ -41,7 +37,7 @@ export const registerUser = (userData) => {
 export const loginUser = async (userData) => {
   try {
     const response = await axios.post(
-      `https://stock-managment-backend-production.up.railway.app/api/users/login`,
+      `https://stock-managment.onrender.com/api/users/login`,
       userData,
       {
         withCredentials: true,
@@ -62,9 +58,7 @@ export const loginUser = async (userData) => {
 //Logout user
 export const logoutUser = async () => {
   try {
-    await axios.get(
-      `https://stock-managment-backend-production.up.railway.app/api/users/logout`
-    );
+    await axios.get(`https://stock-managment.onrender.com/api/users/logout`);
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -77,7 +71,7 @@ export const logoutUser = async () => {
 export const forgotPassword = async () => {
   try {
     const response = await axios.post(
-      `https://stock-managment-backend-production.up.railway.app/api/users/forgotpassword`
+      `https://stock-managment.onrender.com/api/users/forgotpassword`
     );
     toast.success(response.data.message);
   } catch (error) {
@@ -92,7 +86,7 @@ export const forgotPassword = async () => {
 export const resetPassword = async (userData, resetToken) => {
   try {
     const response = await axios.put(
-      `https://stock-managment-backend-production.up.railway.app/api/users/resetpassword/${resetToken}`,
+      `https://stock-managment.onrender.com/api/users/resetpassword/${resetToken}`,
       userData
     );
     return response.data;
@@ -108,7 +102,7 @@ export const resetPassword = async (userData, resetToken) => {
 export const getLoginStatus = async () => {
   try {
     const response = await axios.get(
-      `https://stock-managment-backend-production.up.railway.app/api/users/loggedin`
+      `https://stock-managment.onrender.com/api/users/loggedin`
     );
     return response.data;
   } catch (error) {

@@ -56,7 +56,7 @@ const Login = () => {
 
   return (
     <div className={`container ${styles.auth}`}>
-      {isLoading && <Loader/>}
+      {isLoading && <Loader />}
       <Card>
         <div className={styles.form}>
           <div className="--flex-center">
@@ -64,7 +64,7 @@ const Login = () => {
           </div>
           <h2>Login</h2>
 
-          <form onSubmit={login}>
+          <div>
             <input
               type="email"
               placeholder="Email"
@@ -81,10 +81,10 @@ const Login = () => {
               value={password}
               onChange={handleInputChange}
             />
-            <button type="submit" className="--btn --btn-primary --btn-block">
+            <button onClick={login} className="--btn --btn-primary --btn-block">
               Login
             </button>
-          </form>
+          </div>
           <Link to="/forgot">Forgot Password</Link>
 
           <span className={styles.register}>
