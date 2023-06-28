@@ -13,9 +13,13 @@ export const validateEmail = (email) => {
 
 export const registerUser = (userData) => {
   return axios
-    .post(`${BACKEND_URL}/api/users/register`, userData, {
-      withCredentials: true,
-    })
+    .post(
+      `https://stock-managment-backend-production.up.railway.app/api/users/register`,
+      userData,
+      {
+        withCredentials: true,
+      }
+    )
     .then((response) => {
       if (response.statusText === "OK") {
         toast.success("User Registered successfully");
@@ -27,8 +31,8 @@ export const registerUser = (userData) => {
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
-          error.message ||
-         error.toString();
+        error.message ||
+        error.toString();
       toast.error(message);
     });
 };
@@ -37,7 +41,7 @@ export const registerUser = (userData) => {
 export const loginUser = async (userData) => {
   try {
     const response = await axios.post(
-      `${BACKEND_URL}/api/users/login`,
+      `https://stock-managment-backend-production.up.railway.app/api/users/login`,
       userData,
       {
         withCredentials: true,
@@ -58,8 +62,7 @@ export const loginUser = async (userData) => {
 //Logout user
 export const logoutUser = async () => {
   try {
-    await axios.get(
-      `${BACKEND_URL}/api/users/logout`,);
+    await axios.get(`${BACKEND_URL}/api/users/logout`);
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -72,8 +75,9 @@ export const logoutUser = async () => {
 export const forgotPassword = async () => {
   try {
     const response = await axios.post(
-      `${BACKEND_URL}/api/users/forgotpassword`,);
-      toast.success(response.data.message);
+      `${BACKEND_URL}/api/users/forgotpassword`
+    );
+    toast.success(response.data.message);
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -111,4 +115,3 @@ export const getLoginStatus = async () => {
     toast.error(message);
   }
 };
-
