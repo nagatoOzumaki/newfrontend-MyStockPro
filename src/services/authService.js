@@ -62,7 +62,9 @@ export const loginUser = async (userData) => {
 //Logout user
 export const logoutUser = async () => {
   try {
-    await axios.get(`${BACKEND_URL}/api/users/logout`);
+    await axios.get(
+      `https://stock-managment-backend-production.up.railway.app/api/users/logout`
+    );
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -75,7 +77,7 @@ export const logoutUser = async () => {
 export const forgotPassword = async () => {
   try {
     const response = await axios.post(
-      `${BACKEND_URL}/api/users/forgotpassword`
+      `https://stock-managment-backend-production.up.railway.app/api/users/forgotpassword`
     );
     toast.success(response.data.message);
   } catch (error) {
@@ -90,7 +92,7 @@ export const forgotPassword = async () => {
 export const resetPassword = async (userData, resetToken) => {
   try {
     const response = await axios.put(
-      `${BACKEND_URL}/api/users/resetpassword/${resetToken}`,
+      `https://stock-managment-backend-production.up.railway.app/api/users/resetpassword/${resetToken}`,
       userData
     );
     return response.data;
@@ -105,7 +107,9 @@ export const resetPassword = async (userData, resetToken) => {
 // Get Login Status
 export const getLoginStatus = async () => {
   try {
-    const response = await axios.get(`${BACKEND_URL}/api/users/loggedin`);
+    const response = await axios.get(
+      `https://stock-managment-backend-production.up.railway.app/api/users/loggedin`
+    );
     return response.data;
   } catch (error) {
     const message =
