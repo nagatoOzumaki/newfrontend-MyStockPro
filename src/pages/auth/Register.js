@@ -64,7 +64,7 @@ const Register = () => {
 
   return (
     <div className={`container ${styles.auth}`}>
-      {isLoading && <Loader/>}
+      {isLoading && <Loader />}
       <Card>
         <div className={styles.form}>
           <div className="--flex-center">
@@ -72,7 +72,8 @@ const Register = () => {
           </div>
           <h2>Register</h2>
 
-          <form onSubmit={register}>
+          {/* <form onSubmit={register}> */}
+          <form>
             <input
               type="text"
               placeholder="Name"
@@ -105,7 +106,10 @@ const Register = () => {
               value={password2}
               onChange={handleInputChange}
             />
-            <button type="submit" className="--btn --btn-primary --btn-block">
+            <button
+              onClick={register}
+              className="--btn --btn-primary --btn-block"
+            >
               Register
             </button>
           </form>
