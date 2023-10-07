@@ -4,7 +4,7 @@ import {AiOutlineDelete , AiOutlineEdit} from 'react-icons/ai'
 
 
 export default function TableForm({description, setDescription, quantity,
-    setQuantity,price ,setPrice ,amount ,setAmount,list,setList, somme, setSomme,})
+    setQuantity,price ,setPrice ,amount ,setAmount,list,setList, somme, setSomme,Avance,setAvance})
     {
         const [isEditing, setIsEditing] = useState(false)
         const handleSubmit=(e) => {
@@ -17,9 +17,6 @@ export default function TableForm({description, setDescription, quantity,
                 price,
                 amount,
                 vatAmount,
-                
-                
-
             }
             setDescription("")
             setQuantity("")
@@ -57,9 +54,6 @@ export default function TableForm({description, setDescription, quantity,
               const vat = (vatRate / 100) * somme;
               setVatAmount(vat);
             }, [somme]);
-
-            
-
             const [vat20, setVat20] = useState('');
             const handleVat20Change = (event) => {
                       setVat20(event.target.value);
@@ -80,7 +74,7 @@ export default function TableForm({description, setDescription, quantity,
     return(
         <>
         <form onSubmit={handleSubmit}>
-        <div className="md:grid grid-cols-1 gap-10 md:mt-1">
+        <div className="md:grid grid-cols-2 gap-10 md:mt-1">
         <div className="flex flex-col">
         <label htmlFor="description">Description</label>
         <input type="text"
@@ -90,8 +84,16 @@ export default function TableForm({description, setDescription, quantity,
             value={description} 
             onChange={(e)=>setDescription(e.target.value)}/>
         </div> 
+        <div className="flex flex-col">
+        <label htmlFor="description">Avance</label>
+        <input type="text"
+            name="Avance"
+            id="Avance"
+            placeholder=""
+            value={Avance} 
+            onChange={(e)=>setAvance(e.target.value)}/>
+        </div> 
         </div>
-
         <div className="md:grid grid-cols-3 gap-10 md:mt-1">
         <div className="flex flex-col">
         <label htmlFor="Quantity">Quantité</label>

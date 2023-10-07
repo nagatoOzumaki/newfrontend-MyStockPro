@@ -1,13 +1,43 @@
-export default function Dates ({invoiceNumber, invoiceDate, dueDate}) {
-    return (
-    <>
-<article className=" text-xl font-bold font-normal text-black mt-2 mb-8 flex items-center justify-center">
-<ul>
-    <li className="p-1"><span className="text-2xl font-bold font-normal text-black ">Nº:</span>{invoiceNumber}</li>
-    <li className="bg-gray-100"><span className="text-xl font-bold font-normal text-black">Date de facturation :</span> {invoiceDate} </li>
-    <li className="p-1"><span className="text-xl font-bold font-normal text-black">Date d'échéance :</span> {dueDate} </li>
-</ul>
-</article>
-    </>
-    );
+import React from 'react';
+
+export default function InvoiceDetails({ invoiceNumber, invoiceDate, dueDate, clientName, clientAddress, code}) {
+  return (
+    <div className="flex flex-wrap">
+      {/* Groupe 1 */}
+      <div className="w-1/2 p-1">
+        <span className="block border border-red-300 p-2 rounded-lg text-black">
+          Nº de Facture &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; <span className="text-red-500">{invoiceNumber}</span>
+        </span>
+      </div>
+      <div className="w-1/2 p-1">
+      <span className="block border border-red-300 p-2 rounded-lg text-black">Date de Facturation&nbsp;:&nbsp;<span className="text-red-500">{invoiceDate}</span>
+        </span>      </div>
+      
+      <div className="w-1/2 p-1">
+      <span className="block border border-red-300 p-2 rounded-lg text-black">
+      Date d'Échéance&nbsp;:&nbsp;<span className="text-red-500">{dueDate}</span>
+        </span>
+      </div>
+      {/* Groupe 2 */}
+      <div className="w-1/2 p-1">
+        <span className="block border border-red-300 p-2 rounded-lg text-black">De Mr &nbsp;:&nbsp; <span className="text-red-500">BENAOUDA RABEH</span></span>
+      </div>
+      <div className="w-1/2 p-1">
+        <span className="block border border-red-300 p-2 rounded-lg text-black">téléphone &nbsp;:&nbsp; <span className="text-red-500">06.61.83.65.23/33</span></span>
+      </div>
+      <div className="w-1/2 p-1">
+        <span className="block border border-red-300 p-2 rounded-lg text-black">Adresse &nbsp;:&nbsp; <span className="text-red-500">KHEMISSET</span> </span>
+      </div>
+
+      <div className="w-1/2 p-1">
+        <span className="block border border-red-300 p-2 rounded-lg text-black">A Mr &nbsp;:&nbsp; <span className="text-red-500">{clientName}</span></span>
+      </div>
+      <div className="w-1/2 p-1">
+        <span className="block border border-red-300 p-2 rounded-lg text-black">Adresse Client &nbsp;:&nbsp; <span className="text-red-500">{clientAddress}</span></span>
+      </div>
+      <div className="w-1/2 p-1">
+        <span className="block border border-red-300 p-2 rounded-lg text-black">Code client  &nbsp;:&nbsp; <span className="text-red-500">{code}</span></span>
+      </div>
+    </div>
+  );
 }

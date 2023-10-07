@@ -49,9 +49,8 @@ const Home = () => {
                 votre entreprise...
                 </p>
                 <p>
-                Cette application est réalisée par des étudiants ingénieurs...
+                Cette application est réalisée par des étudiants ingénieurs...<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"EL BOUKHARI Youcef"
                 </p>
-                
                 <button className='--btn --btn-primary'>
                     <Link to="/dashboard">Essai gratuit d'une semaine</Link>
                 </button>
@@ -62,14 +61,6 @@ const Home = () => {
         </section>
     </div>
   );
-};
- const NumberText = ({ num, text }) => {
-    return (
-      <div className="--mr">
-        <h3 className="--color-white">{num}</h3>
-        <p className="--color-white">{text}</p>
-      </div>
-    );
-  };
+}
 
 export default Home;
